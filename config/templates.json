@@ -1,0 +1,45 @@
+{
+    "schemaVersion":  2,
+    "app":  {
+                "nombre":  "SNP Plantillas Pro",
+                "desarrollador":  "S. Navarro",
+                "actualizacion":  "2026-04-02T07:10:13"
+            },
+    "secciones":  [
+                      {
+                          "id":  "78da931e-ab64-44a1-979a-cad0d07f5812",
+                          "nombre":  "Soporte diario",
+                          "icono":  "SD",
+                          "plantillas":  [
+                                             {
+                                                 "id":  "5e493741-6a3f-4060-922f-29d7f3213151",
+                                                 "titulo":  "Saludo inicial",
+                                                 "descripcion":  "Inicio rapido",
+                                                 "texto":  "Hola, gracias por contactar con soporte. Estoy revisando tu caso.",
+                                                 "favorita":  true
+                                             },
+                                             {
+                                                 "id":  "06401c9b-07c2-44db-b5c4-5394f702415a",
+                                                 "titulo":  "Pedir evidencias",
+                                                 "descripcion":  "Logs y captura",
+                                                 "texto":  "Para avanzar, comparte por favor numero de ticket, captura y hora del error.",
+                                                 "favorita":  false
+                                             }
+                                         ]
+                      },
+                      {
+                          "id":  "028650a8-8ac4-4b51-b421-8edac50c69ed",
+                          "nombre":  "Cierre",
+                          "icono":  "CI",
+                          "plantillas":  [
+                                             {
+                                                 "id":  "fcb35d15-26c9-4823-87e6-bf7afa538ab9",
+                                                 "titulo":  "Seguimiento",
+                                                 "descripcion":  "Caso en curso",
+                                                 "texto":  "Dejo el caso en seguimiento y te actualizo en cuanto tenga novedades.",
+                                                 "favorita":  true
+                                             }
+                                         ]
+                      }
+                  ]
+}
