@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <?define ProductName = "SNPDrumPad" ?>
+  <?define Manufacturer = "SNPSupport" ?>
+  <?define ProductDescription = "DrumPad de textos rapidos para soporte y chats" ?>
+  <?define InstallFolderName = "SNPDrumPad" ?>
+  <?define UpgradeCode = "{7D6C72E3-A88D-4A42-9F11-0E9D1B0B38A4}" ?>
+</Include>

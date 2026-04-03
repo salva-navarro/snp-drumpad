@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <?include Variables.wxi ?>
+
+  <Package
+    Name="$(var.ProductName)"
+    Manufacturer="$(var.Manufacturer)"
+    Version="$(var.ProductVersion)"
+    UpgradeCode="$(var.UpgradeCode)"
+    Scope="perMachine"
+    Language="1033">
+
+    <MajorUpgrade DowngradeErrorMessage="Ya hay instalada una version mas reciente de $(var.ProductName)." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Icon Id="AppIcon" SourceFile="$(var.IconFile)" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    <Property Id="ARPNOREPAIR" Value="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="CompanyFolder" Name="$(var.Manufacturer)">
+        <Directory Id="INSTALLFOLDER" Name="$(var.InstallFolderName)" />
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="$(var.Manufacturer)">
+        <Directory Id="ApplicationShortcutFolder" Name="$(var.InstallFolderName)" />
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="cmpDesktopShortcut" Guid="*">
+        <Shortcut
+          Id="DesktopShortcut"
+          Name="$(var.ProductName)"
+          Description="$(var.ProductDescription)"
+          Target="[System64Folder]WindowsPowerShell\v1.0\powershell.exe"
+          Arguments='-NoProfile -ExecutionPolicy Bypass -File "[INSTALLFOLDER]Run-SNPDrumPad.ps1"'
+          WorkingDirectory="INSTALLFOLDER"
+          Icon="AppIcon" />
+        <RegistryValue Root="HKLM" Key="Software\SNPSupport\SNPDrumPad" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <DirectoryRef Id="ApplicationShortcutFolder">
+      <Component Id="cmpStartMenuShortcut" Guid="*">
+        <Shortcut
+          Id="StartMenuShortcut"
+          Name="$(var.ProductName)"
+          Description="$(var.ProductDescription)"
+          Target="[System64Folder]WindowsPowerShell\v1.0\powershell.exe"
+          Arguments='-NoProfile -ExecutionPolicy Bypass -File "[INSTALLFOLDER]Run-SNPDrumPad.ps1"'
+          WorkingDirectory="INSTALLFOLDER"
+          Icon="AppIcon" />
+        <RemoveFolder Id="RemoveApplicationShortcutFolder" Directory="ApplicationShortcutFolder" On="uninstall" />
+        <RegistryValue Root="HKLM" Key="Software\SNPSupport\SNPDrumPad" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="MainFeature" Title="$(var.ProductName)" Level="1">
+      <ComponentGroupRef Id="ReleaseFileComponents" />
+      <ComponentRef Id="cmpStartMenuShortcut" />
+      <ComponentRef Id="cmpDesktopShortcut" />
+    </Feature>
+  </Package>
+
+  <?include GeneratedFiles.wxs ?>
+</Wix>

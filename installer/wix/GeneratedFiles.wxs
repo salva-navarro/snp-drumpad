@@ -1,0 +1,44 @@
+<Include xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+    <Directory Id="dir_assets" Name="assets">
+      <Directory Id="dir_assets_brand" Name="brand">
+        <Component Id="cmp_assets_brand_app_ico" Guid="*">
+          <File Id="fil_assets_brand_app_ico" Source="$(var.ReleaseDir)\assets\brand\app.ico" KeyPath="yes" />
+        </Component>
+        <Component Id="cmp_assets_brand_logo_icon_png" Guid="*">
+          <File Id="fil_assets_brand_logo_icon_png" Source="$(var.ReleaseDir)\assets\brand\logo_icon.png" KeyPath="yes" />
+        </Component>
+        <Component Id="cmp_assets_brand_logo_main_png" Guid="*">
+          <File Id="fil_assets_brand_logo_main_png" Source="$(var.ReleaseDir)\assets\brand\logo_main.png" KeyPath="yes" />
+        </Component>
+        <Component Id="cmp_assets_brand_logo_square_png" Guid="*">
+          <File Id="fil_assets_brand_logo_square_png" Source="$(var.ReleaseDir)\assets\brand\logo_square.png" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </Directory>
+    <Directory Id="dir_config" Name="config">
+      <Component Id="cmp_config_templates_json" Guid="*">
+        <File Id="fil_config_templates_json" Source="$(var.ReleaseDir)\config\templates.json" KeyPath="yes" />
+      </Component>
+    </Directory>
+    <Directory Id="dir_src" Name="src">
+      <Component Id="cmp_src_SNPDrumPad_ps1" Guid="*">
+        <File Id="fil_src_SNPDrumPad_ps1" Source="$(var.ReleaseDir)\src\SNPDrumPad.ps1" KeyPath="yes" />
+      </Component>
+    </Directory>
+    <Component Id="cmp_Run_SNPDrumPad_ps1" Guid="*">
+      <File Id="fil_Run_SNPDrumPad_ps1" Source="$(var.ReleaseDir)\Run-SNPDrumPad.ps1" KeyPath="yes" />
+    </Component>
+    </DirectoryRef>
+    <ComponentGroup Id="ReleaseFileComponents">
+      <ComponentRef Id="cmp_assets_brand_app_ico" />
+      <ComponentRef Id="cmp_assets_brand_logo_icon_png" />
+      <ComponentRef Id="cmp_assets_brand_logo_main_png" />
+      <ComponentRef Id="cmp_assets_brand_logo_square_png" />
+      <ComponentRef Id="cmp_config_templates_json" />
+      <ComponentRef Id="cmp_src_SNPDrumPad_ps1" />
+      <ComponentRef Id="cmp_Run_SNPDrumPad_ps1" />
+    </ComponentGroup>
+  </Fragment>
+</Include>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <?define ProductName = "SNPDrumPad Portable" ?>
+  <?define Manufacturer = "SNPSupport" ?>
+  <?define ProductDescription = "SNP Plantillas Pro en modo portable" ?>
+  <?define InstallFolderName = "SNPDrumPadPortable" ?>
+  <?define UpgradeCode = "{A8A4AA2E-2E84-4D4C-9B37-F0A45BDCE3CB}" ?>
+</Include>
